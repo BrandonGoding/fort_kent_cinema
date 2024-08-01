@@ -3,13 +3,19 @@ import BackgroundImageHero from "./components/background-img-hero/BackgroundImag
 import ShowTimes from "./components/showtimes/ShowTimes";
 import NowPlaying from "./components/now-playing/NowPlaying";
 import {SwatchIcon, ClockIcon} from '@heroicons/react/20/solid'
+import Footer from "./components/footer/Footer";
+import BlogTeaser from "./components/blog_teasers/BlogTeaser";
 
 
 const navigation = [
-    // {
-    //     name: "Home",
-    //     href: "#",
-    // }
+    {
+        name: "Home",
+        href: "/",
+    },
+    {
+        name: "Blog",
+        href: "/fort-kent-cinema-blog"
+    }
 ]
 
 const nowPlaying = [
@@ -54,7 +60,7 @@ const nowPlaying = [
 function App() {
     return (
         <div className="App">
-            <BackgroundImageHero navigation={navigation}/>
+            <BackgroundImageHero navigation={navigation} />
             <div className="overflow-hidden bg-white py-12 sm:py-16">
                 <h2 className="text-4xl font-bold tracking-tight sm:text-6xl text-center mb-12 sm:mb-16">Now Playing at Fort Kent Cinema</h2>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -67,6 +73,8 @@ function App() {
                 </div>
             </div>
             <ShowTimes/>
+            <BlogTeaser />
+            <Footer navigation={navigation} />
         </div>
     );
 }
