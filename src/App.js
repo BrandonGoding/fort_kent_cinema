@@ -97,7 +97,7 @@ function BlogPage() {
               </>
             :
               <>
-               <BackgroundImageHero navigation={navigation} title={"The Fort Kent Cinema Blog"} />
+               <BackgroundImageHero navigation={navigation} title={"Cinema Chronicles"} subtitle={"The Fort Kent Cinema Blog"} />
                 <BlogTeaser />
               </>
             }

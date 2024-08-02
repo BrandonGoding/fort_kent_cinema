@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import background from '../../static/images/kid-watching-movie.webp'
 import whiteLogo from '../../static/images/logos/FKC_logo_white_FIN.png'
 
-export default function BackgroundImageHero({navigation, title, movie}) {
+export default function BackgroundImageHero({navigation, title, movie, subtitle="Your Gateway to Blockbusters and Indie Gems in the Heart of Northern Maine."}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -119,7 +119,7 @@ export default function BackgroundImageHero({navigation, title, movie}) {
               {title ? title: "Fort Kent Cinema"}
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              {movie ? `A review of the movie ${movie}`: "Your Gateway to Blockbusters and Indie Gems in the Heart of Northern Maine."}
+              {movie ? `A review of the movie ${movie}`: subtitle}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               {/*<a*/}
