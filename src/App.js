@@ -7,6 +7,8 @@ import Footer from "./components/footer/Footer";
 import BlogTeaser from "./components/blog_teasers/BlogTeaser";
 import BlogPost from "./components/blog_post/BlogPost";
 import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+import {useEffect, useState} from "react";
+import postsData from "./posts.json";
 
 
 const navigation = [
@@ -81,11 +83,15 @@ function HomePage() {
 }
 
 function BlogPage() {
-    const { postName } = useParams();
+    const params = useParams();
+    const [post, setPost] = useState(null);
+      useEffect(() => {
+        setPost(postsData.posts.find(post => post.slug === `/fort-kent-cinema-blog/${params.postName}/`))
+      }, [params.postName]);
     return (
         <>
-            <BackgroundImageHero navigation={navigation} />
-            <BlogPost postName={postName} />
+            <BackgroundImageHero navigation={navigation} title={post?.title} movie={post?.movie} />
+            <BlogPost post={post} />
         </>
     );
 }

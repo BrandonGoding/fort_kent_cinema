@@ -24,24 +24,27 @@ export default function BlogTeaser() {
           {blogPosts.map((post) => (
             <article key={post.id} className="flex flex-col items-start justify-between">
               <div className="relative w-full">
-                <img
-                  alt=""
-                  src={post.imageUrl}
-                  className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-                />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                <a href={post.slug}>
+                  <img
+                    alt=""
+                    src={post.imageUrl}
+                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                  />
+                  
+                    <div
+                      className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"/></a>
               </div>
               <div className="max-w-xl">
                 <div className="mt-8 flex items-center gap-x-4 text-xs">
                   <time dateTime={post.datetime} className="text-gray-500">
                     {post.date}
                   </time>
-                  <a
-                    href={post.category.slug}
-                    className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                  >
+                  {/*<a*/}
+                  {/*  href={post.category.slug}*/}
+                  {/*  className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"*/}
+                  {/*>*/}
                     {post.category.title}
-                  </a>
+                  {/*</a>*/}
                 </div>
                 <div className="group relative">
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -56,10 +59,10 @@ export default function BlogTeaser() {
                   <img alt="" src={post.author.imageUrl} className="h-10 w-10 rounded-full bg-gray-100" />
                   <div className="text-sm leading-6">
                     <p className="font-semibold text-gray-900">
-                      <a href={post.author.slug}>
+                      {/*<a href={post.author.slug}>*/}
                         <span className="absolute inset-0" />
                         {post.author.name}
-                      </a>
+                      {/*</a>*/}
                     </p>
                     <p className="text-gray-600">{post.author.role}</p>
                   </div>
