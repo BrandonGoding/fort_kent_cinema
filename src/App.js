@@ -77,7 +77,7 @@ function HomePage() {
                 </div>
             </div>
             <ShowTimes />
-            <BlogTeaser />
+            <BlogTeaser limit={3} />
         </>
     );
 }
@@ -90,8 +90,18 @@ function BlogPage() {
       }, [params.postName]);
     return (
         <>
-            <BackgroundImageHero navigation={navigation} title={post?.title} movie={post?.movie} />
-            <BlogPost post={post} />
+            { post ?
+              <>
+              <BackgroundImageHero navigation={navigation} title={post?.title} movie={post?.movie} />
+                <BlogPost post={post} />
+              </>
+            :
+              <>
+               <BackgroundImageHero navigation={navigation} title={"The Century Theater Blog"} />
+                <BlogTeaser />
+              </>
+            }
+            
         </>
     );
 }
@@ -103,6 +113,7 @@ function App() {
             <div className="App">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/fort-kent-cinema-blog" element={<BlogPage />} />
                     <Route path="/fort-kent-cinema-blog/:postName" element={<BlogPage />} />
                 </Routes>
                 <Footer navigation={navigation} />
