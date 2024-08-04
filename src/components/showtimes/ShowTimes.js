@@ -3,7 +3,17 @@ import background from '../../static/images/projector.jpg'
 
 const cards = [
   {
-    name: 'Tuesday - Thursday',
+    name: 'Tuesday',
+    description: '6:00 pm',
+    icon: ClockIcon,
+  },
+    {
+    name: 'Wednesday',
+    description: '6:00 pm',
+    icon: ClockIcon,
+  },
+    {
+    name: 'Thursday',
     description: '6:00 pm',
     icon: ClockIcon,
   },
@@ -13,8 +23,13 @@ const cards = [
     icon: ClockIcon,
   },
   {
-    name: 'Saturday & Sunday',
-    description: '3:00 pm, 6:00 pm & 8:00 pm',
+    name: 'Saturday',
+    description: '3:00 pm, 6:00 pm & 9:00 pm',
+    icon: ClockIcon,
+  },
+    {
+    name: 'Sunday',
+    description: '5:00 pm',
     icon: ClockIcon,
   },
 ]

@@ -10,6 +10,7 @@ export default function BlogTeaser({limit}) {
     const blogCount = limit ? limit : sortedPosts.length;
     const latestThreePosts = sortedPosts.slice(0, blogCount);
     setBlogPosts(latestThreePosts);
+    // eslint-disable-next-line
   }, []);
   
   return (
