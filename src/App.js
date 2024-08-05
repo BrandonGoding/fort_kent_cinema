@@ -64,20 +64,22 @@ const nowPlaying = [
 function HomePage() {
     return (
         <>
-            <BackgroundImageHero navigation={navigation} />
+            <BackgroundImageHero navigation={navigation}/>
             <div className="overflow-hidden bg-white py-12 sm:py-16">
-                <h2 className="text-4xl font-bold tracking-tight sm:text-6xl text-center mb-12 sm:mb-16">Now Playing at Fort Kent Cinema</h2>
+                <h2 className="text-4xl font-bold tracking-tight sm:text-6xl text-center mb-12 sm:mb-16">Now Playing at
+                    Fort Kent Cinema</h2>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div
                         className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                         {nowPlaying.map((movie) => (
-                            <NowPlaying key={movie.title} title={movie.title} starting={movie.startDate} features={movie.features}/>
+                            <NowPlaying key={movie.title} title={movie.title} starting={movie.startDate}
+                                        features={movie.features}/>
                         ))}
                     </div>
                 </div>
             </div>
-            <ShowTimes />
-            <BlogTeaser limit={3} />
+            <ShowTimes/>
+            <BlogTeaser limit={3}/>
         </>
     );
 }
@@ -85,21 +87,22 @@ function HomePage() {
 function BlogPage() {
     const params = useParams();
     const [post, setPost] = useState(null);
-      useEffect(() => {
+    useEffect(() => {
         setPost(postsData.posts.find(post => post.slug === `/fort-kent-cinema-blog/${params.postName}/`))
-      }, [params.postName]);
+    }, [params.postName]);
     return (
         <>
-            { post ?
-              <>
-              <BackgroundImageHero navigation={navigation} title={post?.title} movie={post?.movie} />
-                <BlogPost post={post} />
-              </>
-            :
-              <>
-               <BackgroundImageHero navigation={navigation} title={"Cinema Chronicles"} subtitle={"The Fort Kent Cinema Blog"} />
-                <BlogTeaser />
-              </>
+            {post ?
+                <>
+                    <BackgroundImageHero navigation={navigation} title={post?.title} movie={post?.movie}/>
+                    <BlogPost post={post}/>
+                </>
+                :
+                <>
+                    <BackgroundImageHero navigation={navigation} title={"Cinema Chronicles"}
+                                         subtitle={"The Fort Kent Cinema Blog"}/>
+                    <BlogTeaser/>
+                </>
             }
             
         </>

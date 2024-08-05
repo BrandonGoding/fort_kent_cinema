@@ -4,33 +4,30 @@ import background from '../../static/images/projector.jpg'
 const cards = [
   {
     name: 'Tuesday',
-    description: '6:00 pm',
-    icon: ClockIcon,
+    times: '6:00 pm',
   },
     {
     name: 'Wednesday',
-    description: '6:00 pm',
-    icon: ClockIcon,
+    times: '6:00 pm',
+        note: 'Film played with captions when available'
   },
     {
     name: 'Thursday',
-    description: '6:00 pm',
-    icon: ClockIcon,
+    times: '6:00 pm',
+        note: 'Bring your own bowl $1 popcorn night'
   },
   {
     name: 'Friday',
-    description: '7:30 pm',
-    icon: ClockIcon,
+    times: '7:30 pm',
   },
   {
     name: 'Saturday',
-    description: '3:00 pm, 6:00 pm & 9:00 pm',
-    icon: ClockIcon,
+    times: '3:00 pm, 6:00 pm & 9:00 pm',
+      note: 'Film played with captions when available'
   },
     {
     name: 'Sunday',
-    description: '5:00 pm',
-    icon: ClockIcon,
+    times: '5:00 pm',
   },
 ]
 
@@ -77,10 +74,15 @@ export default function ShowTimes() {
                   {cards.map((card) => (
                       <div key={card.name}
                            className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10">
-                          <card.icon aria-hidden="true" className="h-7 w-5 flex-none text-indigo-400"/>
+
                           <div className="text-base leading-7">
                               <h3 className="font-semibold text-white">{card.name}</h3>
-                              <p className="mt-2 text-gray-300">{card.description}</p>
+                              <p className="mt-2 text-gray-300 inline">
+                                  <ClockIcon aria-hidden="true"
+                                             className="h-7 w-5 mr-2.5 flex-none text-indigo-400 inline"/>
+                                  {card.times}
+                                  {card?.note && <small className="italic"><br/>{card.note}</small>}
+                              </p>
                           </div>
                       </div>
                   ))}
